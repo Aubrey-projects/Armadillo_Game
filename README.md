@@ -26,6 +26,7 @@ This is a basic bowling game made to help me learn the Godot Game Engine. Blende
 * [5 Tips I Wish I Knew Before I Started Rigging in Blender for Godot](https://www.youtube.com/watch?v=_VFfQLtOpxg)
 * [NEW Procedural Animation in Godot 4.0](https://www.youtube.com/watch?v=G_seJ2Yg1GA)
 * [Inverse Kinematics - Godot 4.6 Tutorial](https://www.youtube.com/watch?v=MbaPDWfbNLo&t=606s)
+* [Godot 4 Inverse Kinematics Tutorial](https://www.youtube.com/watch?v=Vt6iPcmX0rU)
 
 # Future Work
 
