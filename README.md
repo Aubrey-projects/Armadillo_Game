@@ -22,8 +22,8 @@ This is a basic bowling game made to help me learn the Godot Game Engine. Blende
 # Useful Websites
 
 {Make a list of websites that you found helpful in this project}
-* [Web Site Name](http://url.link.goes.here)
-* [Web Site Name](http://url.link.goes.here)
+* [5 Tips I Wish I Knew Before I Started Rigging in Blender for Godot](https://www.youtube.com/watch?v=_VFfQLtOpxg)
+* [NEW Procedural Animation in Godot 4.0](https://www.youtube.com/watch?v=G_seJ2Yg1GA)
 
 # Future Work
 
