@@ -6,7 +6,7 @@
 angle = 3.1415927
 
 [sub_resource type="JointLimitationCone3D" id="JointLimitationCone3D_c1uyk"]
-angle = 3.1415927
+angle = 5.2359877
 
 [sub_resource type="JointLimitationCone3D" id="JointLimitationCone3D_jj3dg"]
 angle = 3.1415927
@@ -15,7 +15,7 @@ angle = 3.1415927
 angle = 3.1415927
 
 [sub_resource type="JointLimitationCone3D" id="JointLimitationCone3D_72m1c"]
-angle = 3.1415927
+angle = 5.2359877
 
 [sub_resource type="JointLimitationCone3D" id="JointLimitationCone3D_xigmb"]
 angle = 3.1415927
@@ -24,7 +24,7 @@ angle = 3.1415927
 angle = 3.1415927
 
 [sub_resource type="JointLimitationCone3D" id="JointLimitationCone3D_c0ckj"]
-angle = 3.1415927
+angle = 5.2359877
 
 [sub_resource type="JointLimitationCone3D" id="JointLimitationCone3D_i8kks"]
 angle = 3.1415927
@@ -33,9 +33,12 @@ angle = 3.1415927
 angle = 3.1415927
 
 [sub_resource type="JointLimitationCone3D" id="JointLimitationCone3D_vifqc"]
-angle = 3.1415927
+angle = 5.2359877
 
 [sub_resource type="JointLimitationCone3D" id="JointLimitationCone3D_xr7ax"]
+angle = 3.1415927
+
+[sub_resource type="JointLimitationCone3D" id="JointLimitationCone3D_4yuej"]
 angle = 3.1415927
 
 [node name="IKArmadillo" unique_id=1756932102 instance=ExtResource("1_ohrsk")]
@@ -140,6 +143,22 @@ settings/0/joints/2/limitation/rotation_offset = Quaternion(0, 0, 0, 1)
 settings/0/joints/3/rotation_axis = 3
 settings/0/joints/3/limitation = null
 
+[node name="Head" type="CCDIK3D" parent="Armature/Skeleton3D" parent_id_path=PackedInt32Array(1177091727) index="5" unique_id=1930157838]
+setting_count = 1
+settings/0/target_node = NodePath("../../HeadMarker")
+settings/0/root_bone_name = "NeckBone"
+settings/0/root_bone = 7
+settings/0/end_bone_name = "FaceBone"
+settings/0/end_bone = 8
+settings/0/extend_end_bone = false
+settings/0/joint_count = 2
+settings/0/joints/0/rotation_axis = 3
+settings/0/joints/0/limitation = SubResource("JointLimitationCone3D_4yuej")
+settings/0/joints/0/limitation/right_axis = 0
+settings/0/joints/0/limitation/rotation_offset = Quaternion(0, 0, 0, 1)
+settings/0/joints/1/rotation_axis = 3
+settings/0/joints/1/limitation = null
+
 [node name="FrontLeftMarker" type="Marker3D" parent="Armature" parent_id_path=PackedInt32Array(35795838) index="1" unique_id=673223275]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1, 0, 0.39999998)
 
@@ -151,3 +170,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1, 0, -0.3)
 
 [node name="BackRightMarker" type="Marker3D" parent="Armature" parent_id_path=PackedInt32Array(35795838) index="4" unique_id=154616327]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.1, 0, -0.3)
+
+[node name="HeadMarker" type="Marker3D" parent="Armature" parent_id_path=PackedInt32Array(35795838) index="5" unique_id=1516089851]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0.7)
