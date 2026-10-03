@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://31v4yrvkqb68"]
 
 [ext_resource type="PackedScene" uid="uid://dejml4wfiptrb" path="res://assets/models/armadillo.glb" id="1_ohrsk"]
+[ext_resource type="Script" uid="uid://bvub8wxi3ko17" path="res://armadillo/ik_armadillo.gd" id="2_wn8w5"]
 
 [sub_resource type="JointLimitationCone3D" id="JointLimitationCone3D_ro1d4"]
 angle = 3.1415927
@@ -42,11 +43,12 @@ angle = 3.1415927
 angle = 3.1415927
 
 [node name="IKArmadillo" unique_id=1756932102 instance=ExtResource("1_ohrsk")]
+script = ExtResource("2_wn8w5")
 
 [node name="FrontLeft" type="CCDIK3D" parent="Armature/Skeleton3D" parent_id_path=PackedInt32Array(1177091727) index="1" unique_id=1634764570]
 deterministic = true
 setting_count = 1
-settings/0/target_node = NodePath("../../FrontLeftMarker")
+settings/0/target_node = NodePath("../../../LegControllers/FrontLeft/FrontLeftTarget")
 settings/0/root_bone_name = "RootFrontLeft.L"
 settings/0/root_bone = 9
 settings/0/end_bone_name = "EndFrontLeft.L"
@@ -71,7 +73,7 @@ settings/0/joints/3/limitation = null
 [node name="FrontRight" type="CCDIK3D" parent="Armature/Skeleton3D" parent_id_path=PackedInt32Array(1177091727) index="2" unique_id=1289656980]
 deterministic = true
 setting_count = 1
-settings/0/target_node = NodePath("../../FrontRightMarker")
+settings/0/target_node = NodePath("../../../LegControllers/FrontRight/FrontRightTarget")
 settings/0/root_bone_name = "RootFrontRight.R"
 settings/0/root_bone = 18
 settings/0/end_bone_name = "EndFrontRight.R"
@@ -96,7 +98,7 @@ settings/0/joints/3/limitation = null
 [node name="BackLeft" type="CCDIK3D" parent="Armature/Skeleton3D" parent_id_path=PackedInt32Array(1177091727) index="3" unique_id=1368260677]
 deterministic = true
 setting_count = 1
-settings/0/target_node = NodePath("../../BackLeftMarker")
+settings/0/target_node = NodePath("../../../LegControllers/BackLeft/BackLeftTarget")
 settings/0/root_bone_name = "RootBackLeft.L"
 settings/0/root_bone = 27
 settings/0/end_bone_name = "EndBackLeft.L"
@@ -121,7 +123,7 @@ settings/0/joints/3/limitation = null
 [node name="BackRight" type="CCDIK3D" parent="Armature/Skeleton3D" parent_id_path=PackedInt32Array(1177091727) index="4" unique_id=1253941661]
 deterministic = true
 setting_count = 1
-settings/0/target_node = NodePath("../../BackRightMarker")
+settings/0/target_node = NodePath("../../../LegControllers/BackRight/BackRightTarget")
 settings/0/root_bone_name = "RootBackRight.R"
 settings/0/root_bone = 45
 settings/0/end_bone_name = "EndBackRight.R"
@@ -159,17 +161,39 @@ settings/0/joints/0/limitation/rotation_offset = Quaternion(0, 0, 0, 1)
 settings/0/joints/1/rotation_axis = 3
 settings/0/joints/1/limitation = null
 
-[node name="FrontLeftMarker" type="Marker3D" parent="Armature" parent_id_path=PackedInt32Array(35795838) index="1" unique_id=673223275]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1, 0, 0.39999998)
-
-[node name="FrontRightMarker" type="Marker3D" parent="Armature" parent_id_path=PackedInt32Array(35795838) index="2" unique_id=1993158150]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.1, 0, 0.4)
-
-[node name="BackLeftMarker" type="Marker3D" parent="Armature" parent_id_path=PackedInt32Array(35795838) index="3" unique_id=1288099046]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1, 0, -0.3)
-
-[node name="BackRightMarker" type="Marker3D" parent="Armature" parent_id_path=PackedInt32Array(35795838) index="4" unique_id=154616327]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.1, 0, -0.3)
-
-[node name="HeadMarker" type="Marker3D" parent="Armature" parent_id_path=PackedInt32Array(35795838) index="5" unique_id=1516089851]
+[node name="HeadMarker" type="Marker3D" parent="Armature" parent_id_path=PackedInt32Array(35795838) index="1" unique_id=1516089851]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0.7)
+
+[node name="LegControllers" type="Node3D" parent="." index="1" unique_id=2107033505]
+
+[node name="FrontLeft" type="Node3D" parent="LegControllers" index="0" unique_id=203611290]
+
+[node name="GroundRay" type="RayCast3D" parent="LegControllers/FrontLeft" index="0" unique_id=1587020557]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1, 0.4, 0.3)
+
+[node name="FrontLeftTarget" type="Marker3D" parent="LegControllers/FrontLeft" index="1" unique_id=673223275]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1, 0, 0.29999998)
+
+[node name="FrontRight" type="Node3D" parent="LegControllers" index="1" unique_id=526031371]
+
+[node name="GroundRay" type="RayCast3D" parent="LegControllers/FrontRight" index="0" unique_id=2023568159]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.10000001, 0.4, 0.3)
+
+[node name="FrontRightTarget" type="Marker3D" parent="LegControllers/FrontRight" index="1" unique_id=1993158150]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.1, 0, 0.3)
+
+[node name="BackLeft" type="Node3D" parent="LegControllers" index="2" unique_id=1754944045]
+
+[node name="GroundRay" type="RayCast3D" parent="LegControllers/BackLeft" index="0" unique_id=1792535247]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1, 0.4, -0.20000002)
+
+[node name="BackLeftTarget" type="Marker3D" parent="LegControllers/BackLeft" index="1" unique_id=1288099046]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1, 0, -0.20000002)
+
+[node name="BackRight" type="Node3D" parent="LegControllers" index="3" unique_id=1547788476]
+
+[node name="GroundRay" type="RayCast3D" parent="LegControllers/BackRight" index="0" unique_id=901093644]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.1, 0.4, -0.2)
+
+[node name="BackRightTarget" type="Marker3D" parent="LegControllers/BackRight" index="1" unique_id=154616327]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.1, 0, -0.20000002)
