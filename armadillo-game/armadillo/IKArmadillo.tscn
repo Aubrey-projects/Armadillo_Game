@@ -197,3 +197,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.1, 0.4, -0.2)
 
 [node name="BackRightTarget" type="Marker3D" parent="LegControllers/BackRight" index="1" unique_id=154616327]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.1, 0, -0.20000002)
+
+[node name="Camera3D" type="Camera3D" parent="." index="2" unique_id=1559620857]
+transform = Transform3D(-0.64278764, 0.3830222, -0.6634138, 3.7046274e-08, 0.86602545, 0.5, 0.7660444, 0.3213938, -0.5566704, -0.8, 0.8, -0.7)
