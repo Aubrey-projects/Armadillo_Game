@@ -94,10 +94,12 @@ func _physics_process(delta: float) -> void:
 			# Rotates the CCDIK3D's target to match the ground's normal
 			target.global_basis = _basis_from_normal(hit_normal)
 		
+		# Checks the active pair of legs to see if they need to step and if they are currently stepping
 		for leg_index in leg_pairs[active_pair]:
 			var leg: Dictionary = legs[leg_index]
 			
 			if leg["needs_step"] and !leg["is_stepping"]:
+				# If it needs to step and is not currently stepping then it calls the step_leg functino
 				step_leg(leg)
 		
 		# Increments through the hit_normals list and gets the average
